@@ -2,7 +2,7 @@ import React from "react";
 
 export default function CompanyType({ choosecountrynumber, countrynumber }) {
   return (
-    <div className="w-[80%]">
+    <div className="md:w-[80%] w-[100%]">
       <div>
         <h1 className="font-satoshibold md:text-base text-base text-black">
           Company Structure

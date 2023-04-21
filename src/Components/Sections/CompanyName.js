@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 export default function Country() {
   const [togglepassword, settogglepassword] = useState(true);
   return (
-    <div className="md:w-[100%] w-[100%] py-4 md:px-6 px-4 relative flex text-start h-screen">
+    <div className="md:w-[100%] w-[100%] py-4 md:px-6 px-0 relative flex text-start md:h-screen">
 
-    <div className="md:w-[100%] w-[100%] mt-20">
+    <div className="md:w-[100%] w-[100%] md:pt-20 pt-0">
       <h1 className="font-satoshibold text-lg">Company information</h1>
       <p className="font-satoshiregular text-sm text-[#475569]">
        Let's check and see if your company name is available to be registered

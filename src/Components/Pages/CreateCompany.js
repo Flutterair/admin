@@ -30,7 +30,8 @@ export default function CreateCompany() {
   return (
     <div className=" flex flex-col bg-[#F6F6F6] relative h-screen">
       <div className="flex justify-between items-start">
-        <div className="mx-10 bg-[#F6F6F6] rounded-lg py-10 px-6 w-[30%]">
+
+        <div className="mx-10 bg-[#F6F6F6] rounded-lg py-10 px-6 w-[30%] md:block hidden">
           <h1 className="font-satoshibold md:text-sm text-xs text-black">
             Welcome to Flutterair 👋
           </h1>
@@ -196,7 +197,7 @@ export default function CreateCompany() {
           </div>
         </div>
 
-        <div className="bg-white w-[70%] py-4 px-6 h-screen items-center pl-[18%] flex">
+        <div className="bg-white md:w-[70%] w-[100%] py-4 px-6 h-screen md:items-center md:pt-0 pt-20  md:pl-[18%] flex">
           <div className={stepper == 0 ? "block w-[100%]" : "hidden"}>
             <CompanyType />
           </div>
@@ -208,7 +209,7 @@ export default function CreateCompany() {
           </div>
         </div>
       </div>
-      <div className="bg-white shadow-md shadow-[#eee] border py-4 px-10 absolute bottom-0 flex items-center justify-between w-[100%]">
+      <div className="bg-white shadow-md shadow-[#eee] border md:py-4 py-2 md:px-10 px-4 absolute bottom-0 flex items-center justify-between w-[100%]">
         <div></div>
         <div className="flex items-center space-x-4 ">
           <div

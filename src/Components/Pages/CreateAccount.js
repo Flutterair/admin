@@ -60,24 +60,19 @@ export default function CreateAccount() {
         </div>
       </div>
 
-      <div className="md:hidden flex mt-4 mx-3 absolute right-0">
-        <div className="flex space-x-2 items-center cursor-pointer">
-          <img src={logo} alt="logo" className="h-12 w-12" />
-        </div>
-      </div>
 
 
       <div className="md:w-[70%] w-[100%] md:ml-[40%] py-4 md:px-6 px-4 relative flex text-start h-screen">
 
         <Link to={"/"}>
-          <div className="absolute top-6 right-10 border border-[#51bf55] py-2 px-4 rounded-md">
+          <div className="absolute top-6 md:right-10 right-4 border border-[#51bf55] py-2 px-4 rounded-md">
             <h1 className="font-satoshimedium text-[#51bf55] text-xs">
               Already have an account ? Log in
             </h1>
           </div>
         </Link>
 
-        <div className="md:w-[70%] w-[100%] mt-20 mx-10">
+        <div className="md:w-[70%] w-[100%] mt-20 md:mx-10">
           <h1 className="font-satoshibold text-lg">Create an account</h1>
           <p className="font-satoshiregular text-sm text-[#475569]">
             Welcome to flutterair, where ideas meet reality

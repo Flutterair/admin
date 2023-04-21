@@ -2,13 +2,24 @@ import React, { useState } from "react";
 import logo from "../../Assets/logo.png";
 import logonoback from "../../Assets/logonoback.png";
 import heroimg from "../../Assets/heroimg.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function CreateAccount() {
+  const navigate = useNavigate();
   const [togglepassword, settogglepassword] = useState(true);
-  return (
-    <div className="md:flex items-center h-screen">
 
+  const user = [
+    {firstname : "Victor Olamide"}
+  ]
+
+  const create = async () => {
+    localStorage.setItem("userData", JSON.stringify(user));
+    navigate(0)
+    navigate("/")
+  }
+  return (
+
+    <div className="md:flex items-center h-screen">
       <div className="w-[30%] bg-[#F6F6F6] py-4 px-6 h-screen fixed hidden md:block">
         <div className="flex space-x-2 items-center cursor-pointer">
           <h1 className="font-satoshibold text-base text-black">flutterair</h1>
@@ -72,7 +83,7 @@ export default function CreateAccount() {
           </div>
         </Link>
 
-        <div className="md:w-[70%] w-[100%] mt-20 md:mx-10">
+        <div className="md:w-[70%] w-[100%] mt-20 md:mx-10 mx-2">
           <h1 className="font-satoshibold text-lg">Create an account</h1>
           <p className="font-satoshiregular text-sm text-[#475569]">
             Welcome to flutterair, where ideas meet reality
@@ -459,13 +470,13 @@ export default function CreateAccount() {
             </div>
           </div>
 
-          <Link to={"/create/incorporation"}>
-            <div className="mt-6 flex items-center justify-center bg-black py-3 px-3 text-center cursor-pointer">
+         
+            <div onClick={create} className="mt-6 flex items-center justify-center bg-black py-4 rounded-md px-3 text-center cursor-pointer">
               <h1 className="font-satoshibold text-white md:text-sm text-xs">
                 Create your account
               </h1>
             </div>
-          </Link>
+          
 
           <p className="text-xs font-satoshiregular mt-4 pb-10">
             By clicking create your account, I acknowledge that I have read and

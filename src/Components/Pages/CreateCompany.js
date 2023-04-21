@@ -4,8 +4,16 @@ import CompanyType from "../Sections/CompanyType";
 import { enqueueSnackbar } from "notistack";
 import { CheckmarkOutline } from "react-ionicons";
 import RegistrationState from "../Sections/RegistrationState";
+import ShareholdersInformation from "../Sections/ShareholdersInformation";
+import PaymentSection from "../Sections/PaymentSection";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { useNavigate } from "react-router-dom";
+
+const MySwal = withReactContent(Swal);
 
 export default function CreateCompany() {
+  const navigate = useNavigate();
   const [stepper, setstepper] = useState(0);
 
   const previous = async () => {
@@ -21,7 +29,14 @@ export default function CreateCompany() {
   };
 
   const next = async () => {
-    if (stepper > 4) {
+    if (stepper > 3) {
+      setstepper(4);
+      Swal.fire(
+        'Good job!',
+        'You have created an Incorporation!',
+        'success'
+      )
+      navigate("/");
     } else {
       setstepper(Number(stepper) + 1);
     }
@@ -30,7 +45,6 @@ export default function CreateCompany() {
   return (
     <div className=" flex flex-col bg-[#F6F6F6] relative h-screen">
       <div className="flex justify-between items-start">
-
         <div className="mx-10 bg-[#F6F6F6] rounded-lg py-10 px-6 w-[30%] md:block hidden">
           <h1 className="font-satoshibold md:text-sm text-xs text-black">
             Welcome to Flutterair 👋
@@ -137,19 +151,41 @@ export default function CreateCompany() {
           <div className="w-0.5 h-4 bg-[#eee] mx-5 mt-2"></div>
 
           <div className="flex items-center space-x-3 mt-3">
-            <div className="border-2 border-[#fbfbfb] rounded-full">
-              <div className="border border-[#f3f3f3] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5">
-                <h1 className="font-satoshibold md:text-sm text-xs text-[#eee]">
-                  3
-                </h1>
+            <div
+              className={
+                stepper == 2
+                  ? "border-2 border-[#51bf55] rounded-full"
+                  : "border border-[#fbfbfb] rounded-full"
+              }
+            >
+              <div
+                className={
+                  stepper > 2
+                    ? "border-2 border-[#51bf55] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5"
+                    : "border border-[#f3f3f3] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5"
+                }
+              >
+                {stepper > 2 ? (
+                  <CheckmarkOutline color={"#51bf55"} />
+                ) : (
+                  <h1 className="font-satoshibold md:text-sm text-xs text-[#eee]">
+                    3
+                  </h1>
+                )}
               </div>
             </div>
             <div>
               <h1 className="font-satoshibold md:text-sm text-xs text-black">
                 Registration State
               </h1>
-              <h1 className="font-satoshiregular text-xs text-[#808080] hidden">
-                Choose your desired country of registration for incorporation.
+              <h1
+                className={
+                  stepper == 2
+                    ? "font-satoshiregular text-xs text-[#808080]"
+                    : "hidden"
+                }
+              >
+                Choose your registration state.
               </h1>
             </div>
           </div>
@@ -158,19 +194,42 @@ export default function CreateCompany() {
           <div className="w-0.5 h-4 bg-[#eee] mx-5 mt-2"></div>
 
           <div className="flex items-center space-x-3 mt-3">
-            <div className="border-2 border-[#fbfbfb] rounded-full">
-              <div className="border border-[#f3f3f3] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5">
-                <h1 className="font-satoshibold md:text-sm text-xs text-[#eee]">
-                  4
-                </h1>
+            <div
+              className={
+                stepper == 3
+                  ? "border-2 border-[#51bf55] rounded-full"
+                  : "border-2 border-[#fbfbfb] rounded-full"
+              }
+            >
+              <div
+                className={
+                  stepper > 3
+                    ? "border-2 border-[#51bf55] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5"
+                    : "border border-[#f3f3f3] bg-black rounded-full py-3 px-3 h-10 flex items-center justify-center text-center w-10 m-0.5"
+                }
+              >
+                {stepper > 3 ? (
+                  <CheckmarkOutline color={"#51bf55"} />
+                ) : (
+                  <h1 className="font-satoshibold md:text-sm text-xs text-[#eee]">
+                    4
+                  </h1>
+                )}
               </div>
             </div>
             <div>
               <h1 className="font-satoshibold md:text-sm text-xs text-black">
                 Shareholders information
               </h1>
-              <h1 className="font-satoshiregular text-xs text-[#808080] hidden">
-                Choose your desired country of registration for incorporation.
+              <h1
+                className={
+                  stepper == 3
+                    ? "font-satoshiregular text-xs text-[#808080] "
+                    : "hidden"
+                }
+              >
+                Provide all shareholders information, who will own percentages
+                of the company
               </h1>
             </div>
           </div>
@@ -206,6 +265,12 @@ export default function CreateCompany() {
           </div>
           <div className={stepper == 2 ? "block w-[100%]" : "hidden"}>
             <RegistrationState />
+          </div>
+          <div className={stepper == 3 ? "block w-[100%]" : "hidden"}>
+            <ShareholdersInformation />
+          </div>
+          <div className={stepper == 4 ? "block w-[100%]" : "hidden"}>
+            <PaymentSection />
           </div>
         </div>
       </div>

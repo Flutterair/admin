@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-export default function Country() {
-  const [togglepassword, settogglepassword] = useState(true);
+export default function CompanyName() {
+
   return (
     <div className="md:w-[100%] w-[100%] py-4 md:px-6 px-0 relative flex text-start md:h-screen">
 

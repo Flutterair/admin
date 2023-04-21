@@ -56,7 +56,7 @@ export default function LoginPage() {
           </div>
 
           <Link to={"/"}>
-            <div className="mt-8 flex items-center justify-center bg-black py-3 px-3 text-center cursor-pointer">
+            <div className="mt-8 flex items-center justify-center bg-black py-4 rounded-md px-3 text-center cursor-pointer">
               <h1 className="font-satoshibold text-white md:text-sm text-xs">
                 LOGIN
               </h1>

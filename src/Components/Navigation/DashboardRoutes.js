@@ -10,6 +10,7 @@ export default function DashboardRoutes() {
       {/* Routes Defined also with component to load up */}
       <Routes>
       <Route path="/" element={<Dashboard/>}></Route>
+      <Route path="/create/account" element={<Dashboard/>}></Route>
         <Route path="*" element={<ErrorPage/>}></Route>
       </Routes>
     </>

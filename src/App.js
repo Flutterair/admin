@@ -1,15 +1,12 @@
-import React from "react";
-import Navbar from "./Components/Navigation/Navbar";
-import Footer from "./Components/Sections/Footer";
-import LandingPage from "./Components/Pages/LandingPage";
-import Layout from "./Components/Navigation/Layout";
+import React, { useState } from "react";
+import AuthLayout from "./Components/Navigation/AuthLayout";
+import DashboardLayout from "./Components/Navigation/DashboardLayout";
 
 export default function App() {
+  const [isloggedin, setisloggedin] = useState(true)
   return (
     <div className="">
-      <Navbar />
-        <Layout/>
-      <Footer/>
+     {isloggedin == true ? <AuthLayout/> : <DashboardLayout/>}
     </div>
   );
 }
